@@ -1,3 +1,5 @@
 .idea/*
-nodeStudy/**/node_modules/*
+nodeStudy/*/node_modules/*
 nodeStudy/node_modules/*
+reactStudy/*/node_modules/*
+reactStudy/node_modules/*
