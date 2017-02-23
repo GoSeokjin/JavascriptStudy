@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //데이터와 함수를 캡슐화해서 다른 라이브러리와의 충돌을 막고싶다.
+    var jscbObject = {
+        getElem : function(identifier){
+            return document.getElementById(identifier);
+        },
+        stripslashes : function(str){
+          return str.replace(/\\/g,'');
+        },
+        removeAngleBrackets : function(str){
+            return str.replace(/</g , '&lt;').replace(/>/g,'&gt;');
+        }
+    };
+
+    var sample = "<div>testing\changes</div>";
+    var result = jscbObject.stripslashes(sample);
+    result = jscbObject.removeAngleBrackets(result);
+
+    console.log(result);
+
+    //싱글톤
+    var mySingleton = (function(){
+        var instance;
+
+        function init(){
+            //싱글톤
+            function privateMethod(){
+                console.log("I am private");
+            }
+            var privateVariable = "Im also private";
+            var privateRandomNumber = Math.random();
+            return{
+                //공개 메서드와 변수
+                publicMethod : function(){
+                    console.log("The public can see me!");
+                },
+                publicProperty : "I am also public",
+                getRandomNumber : function(){
+                    return privateRandomNumber
+                };
+            };
+            return {
+                //싱글톤 인스턴스를 구하거나 ,없으면 새로만들기
+                getInstance : function(){
+                    if(!instance){
+                        instance = init();
+                    }
+                    return instance;
+                }
+            }
+        }
+    })();
+
+    singleA = mySingleton.getInstance();
+    var singleB = mySingleton.getInstance();
+    console.log(singleA === singleB);  //true
+
+
+
+
+</script>
+</html>

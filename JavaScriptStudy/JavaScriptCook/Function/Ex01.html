@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //모든 변수선언은 호이스트 됩니다. 호이스트란, 변수의 정의가 그 범위에 따라 선언과 할당으로 분리되는 것을 의미합니다. 즉, 변수가 함수내에서 정의되었을 경우 선언이 함수의 최상위로, 함수 바깥에서 정의되었을 경우는 전역 컨텍스트의 최상위로 변경됩니다
+    function showName() {
+        console.log("First Name : " + name);
+        var name = "Ford";
+        console.log("Last Name : " + name);
+    }
+    showName();
+    // First Name : undefined
+    // Last Name : Ford
+    // First Name이 undefined인 이유는 지역변수 name이 호이스트 되었기 때문입니다.
+
+
+    //자바스크립트 엔진이 해석할때는 이런식으로 해석이된다
+    function showName() {
+        var name; // name 변수는 호이스트 되었습니다. 할당은 이후에 발생하기 때문에, 이 시점에 name의 값은 undefined 입니다.
+        console.log("First name : " + name); // First Name : undefined
+        name = "Ford"; // name에 값이 할당 되었습니다.
+        console.log("Last Name : " + name); // Last Name : Ford
+    }
+
+
+    // 안되는것
+    console.log(a)  // undifined
+    var a = 1;
+
+    // 되는것
+    console.log(test());
+    function test(){
+        return 'test';
+    }
+</script>
+</html>

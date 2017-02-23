@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = ['A','B','C','D','E','F','G'];
+
+    //요소의 값을 확인하고 조건과 일치하면 새로운 값으로 치환
+    function replaceElemnt(element , index ,array){
+        if(element == "C") array[index] = "**"
+    }
+
+    arr.forEach(replaceElemnt); //forech 인자 1.엘리먼트 2.인덱스 3.반환되는 배열
+    console.log(arr.toString()); // A,B,**,D,E,F,G 원본배열과 같은곳을 바라봄  새로운 배열로 할당받고싶다면 map을 사용
+
+</script>
+</html>

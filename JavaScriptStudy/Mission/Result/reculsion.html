@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+ /*   var count =1;
+    var reculsion = function(a , b){
+        if((a-b)*2+1==count){
+            return b
+        }
+        if(a < b){
+            count++;
+            return a + ',' + reculsion(a+1 , b);
+        }else if(a >= b){
+            count++;
+           return b + ',' + reculsion(a, b-1);
+        };
+    };
+    var test = reculsion(1, 15);
+    console.log(test);*/
+var result = ""
+ var reculsion = function(a ,b){
+    result+= a;
+     if(a == b){
+         return;
+     }
+     reculsion(a+1 , b);
+     result+=a;
+ }
+ reculsion(3,7);
+ console.log(result);
+</script>
+</html>

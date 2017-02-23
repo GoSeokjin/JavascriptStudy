@@ -1,0 +1,35 @@
+/*메인*/
+.boardMenu{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-left: 10%;
+    overflow: hidden;
+}
+.boardMenu .boardPage{
+
+    overflow: hidden;
+    float: left;
+}
+.boardMenu .boardPage li{
+    float: left;
+}
+.boardMenu .boardWriteBtn{
+    float: left;
+}
+
+.viewContent{
+    position: relative;
+    overflow: hidden;
+    margin-left: 10%;
+}
+
+.viewContent .boardContent{
+    width: 22%;
+    margin-left: 3px;
+    height: 250px;
+    background-color: #afafaf;
+    float: left;
+}
+
+/*글쓰기 */

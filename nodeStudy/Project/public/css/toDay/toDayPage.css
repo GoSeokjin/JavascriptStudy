@@ -1,0 +1,11 @@
+.containers{
+    width: 100%;
+    float: left;
+}
+.row{
+    width: 100%;
+}
+
+.thumbnails{
+    padding: 30px;
+}

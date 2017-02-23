@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Tune(song, artist){
+        var title = song;
+        this.concat = function(){  //이것만 공개
+            return title + " " + artist;
+        }
+    }
+
+    var happySongs = [];
+    happySongs[0] = new Tune("Putting on the Ritz" , "Ella Fitzgerald");
+
+    console.log(happySongs[0].title);  //undifined
+
+    //정확한 제목과 아티스트 출력
+    console.log(happySongs[0].concat());
+
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = ['A','B','C','D','E','F','G'];
+    var domestic = arr.slice(4, 7);
+    console.log(domestic);  // E , F , G 일부를 복사해서 새로운 배열을 만든다 -> 얕은복사
+
+    var mArray = [];
+    mArray[0] = ["A" , "B"];
+    mArray[1] = ["C" , "D"];
+    mArray[2] = ["E" , "F"];
+
+    var nArray = mArray.slice(1,3);
+    console.log(nArray.toString()); //C,D,E,F
+
+    nArray[0][0] = "add";
+    console.log(mArray.toString()); //A,B,add,D,E,F
+    console.log(nArray.toString()); //add,D,E,F
+
+    //같은 곳을 바라보고있기때문에 서로 영향을 준다. 만약 문자열이나 숫자였다면 새로운값이 리턴되기때문에 서로 영향을 주지않는다.
+
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+    <input type="text" value="testMan">
+    <input type="password" value="testPassword">
+</form>
+</body>
+<script>
+    //알파벳 문자인지 확인
+    function testValue (element , index, array){
+        var textExp = /^[a-zA-Z]+$/;
+        return textExp.test(element);
+    }
+
+    var elemSet = ["**" , 1234 , "aaa" , "abc" , "-" , 45 , "AAA"];
+
+    //검증
+    var result = elemSet.every(testValue);
+    console.log(result);  // false
+
+    var animals = new Array("dog" , "cat" , "seal" , "elephant" , "walrus" ,"cat" );
+    var result2 = animals.every(testValue);
+    console.log(result2); // true
+
+    //유효성 검증에 대비해 폼요소의 이름과 값을 저장
+    var elemArray = new Object();  // notice Object , not Array;
+    var elem  = document.forms[0].elements[0];
+    elemArray[elem.id] = elem.value;
+
+    Object.keys(elemArray).forEach(function(key){
+       var value = elemArray[key];
+       console.log(value);      // testMan
+    });
+
+</script>
+</html>

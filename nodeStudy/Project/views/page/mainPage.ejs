@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Project</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../css/main/mainPage.css">
+    <link rel="stylesheet" href="../../css/main/myInfoCss.css">
+</head>
+<body>
+<div class="container">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <div class="mail-box">
+        <aside class="sm-side">
+            <%include ../partition/mainHeader.ejs%>
+            <%include ../partition/mainMenu.ejs%>
+        </aside>
+        <aside class="lg-side">
+            <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+            <!-- 상단 내정보 -->
+            <div class="containers">
+                <div class="row user-menu-container square">
+                    <div class="col-md-7 user-details">
+                        <div class="row coralbg white">
+                            <div class="col-md-6 no-pad">
+                                <div class="user-pad">
+                                    <h3>Welcome back, <%=user.username %></h3>
+                                    <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4>
+                                    <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4>
+                                    <button type="button" class="btn btn-labeled btn-info" href="#">
+                                        <span class="btn-label"><i class="fa fa-pencil"></i></span>정보수정</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 no-pad">
+                                <div class="user-image">
+                                    <img src="https://farm7.staticflickr.com/6163/6195546981_200e87ddaf_b.jpg" class="img-responsive thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row overview">
+                            <div class="col-md-4 user-pad text-center">
+                                <h3>FOLLOWERS</h3>
+                                <h4>2,784</h4>
+                            </div>
+                            <div class="col-md-4 user-pad text-center">
+                                <h3>FOLLOWING</h3>
+                                <h4>456</h4>
+                            </div>
+                            <div class="col-md-4 user-pad text-center">
+                                <h3>APPRECIATIONS</h3>
+                                <h4>4,901</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 카드이미지 -->
+            <div class="containers">
+                <div class="row">
+                    <ul class="thumbnails">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="../../../img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="../../../img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="../../../img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/noImg.jpg" alt="ALT NAME" class="img-responsive" />
+                                <div class="caption">
+                                    <h3>Header Name</h3>
+                                    <p>Description</p>
+                                    <p align="center"><a href="../../../img/noImg.png" class="btn btn-primary btn-block">Open</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+</body>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</html>

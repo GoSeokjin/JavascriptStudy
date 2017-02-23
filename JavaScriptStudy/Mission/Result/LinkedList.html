@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //단일 연결 리스트는 연결의 형태가 한쪽 방향으로 전개되고 시작과 끝이 분명히 존재한다.
+    function LinkedList(){
+        var length = 0;
+        var head = null;
+
+        this.push = function(value){
+            var node = new Node(value);
+            if(first == null){
+                first = last = node;
+            }else{
+                last.next = node;
+                last = node;
+            }
+        };
+    };
+
+    LinkedList.prototype.append = function(data){
+        var node = new Node(data);
+        var curr;
+
+        if(this.head == null){
+            this.head = node;
+        }else{
+            curr = this.head;
+
+            while (curr.next){
+                curr = curr.next;
+            }
+            curr.next = node;
+        }
+        this.length ++;
+    }
+
+    var list = new LinkedList();
+    list.append(3);
+    list.append(7);
+    console.log(list);
+
+
+
+</script>
+</html>

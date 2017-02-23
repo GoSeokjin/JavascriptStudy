@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 렌더링 되는 위치 -->
+<div id="app">
+
+</div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+    //this.state도 읽기 전용이라고 생각하면 된다고한다.
+    //입력된 문자수를 계산하는 텍스트를 만들어보자
+    var TextAreaCounter = React.createClass({
+        propTypes: {
+            text : React.PropTypes.string
+        },
+        getInitialState : function(){ // text프로퍼티를 복사
+            return {
+                text : this.props.text
+            }
+        },
+        textChange : function(ev){
+          this.setState({  //상태를 업데이트 할떄는 setState를 사용한다.
+              text : ev.target.value
+          })  ;
+        },
+        render : function(){  // 그려주는곳
+            return React.DOM.div(null ,
+            React.DOM.textarea({
+                value : this.state.text,
+                onChange : this.textChange
+            }),
+            React.DOM.h3(null , this.state.text.length))
+        }
+    });
+
+    //업데이트를 처리하지않는 비저장 버젼
+    ReactDOM.render(
+        React.createElement(TextAreaCounter, {
+            text: "Bob"
+        }),
+        document.getElementById('app')
+    );
+
+</script>
+</html>

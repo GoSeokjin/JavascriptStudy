@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //2차원 배열선언
+    var arr = [];
+    arr[0] = ['A' , 'B'];
+    arr[1] = ['C' , 'D'];
+    arr[2] = ['E' , 'F'];
+    arr[3] = ['G' , 'H'];
+
+    //평평해진 배열
+    var newArray = arr.concat.apply([] , arr);
+    console.log(newArray);  //["A", "B", "C", "D", "E", "F", "G", "H"]
+
+    //다른 방법
+    var newArray2 = arr[0].concat(arr[1],arr[2],arr[3]);
+    console.log(newArray2);//["A", "B", "C", "D", "E", "F", "G", "H"]
+</script>
+</html>

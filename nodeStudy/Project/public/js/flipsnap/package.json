@@ -1,0 +1,82 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "flipsnap",
+        "scope": null,
+        "escapedName": "flipsnap",
+        "name": "flipsnap",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\USER\\WebstormProjects\\nodeProject"
+    ]
+  ],
+  "_from": "flipsnap@latest",
+  "_id": "flipsnap@0.6.3",
+  "_inCache": true,
+  "_location": "/flipsnap",
+  "_nodeVersion": "0.10.33",
+  "_npmUser": {
+    "name": "hokaccha",
+    "email": "k.hokamura@gmail.com"
+  },
+  "_npmVersion": "2.11.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "flipsnap",
+    "scope": null,
+    "escapedName": "flipsnap",
+    "name": "flipsnap",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/flipsnap/-/flipsnap-0.6.3.tgz",
+  "_shasum": "54b2603eb11d054333e0c1afb9f173d78bada11a",
+  "_shrinkwrap": null,
+  "_spec": "flipsnap",
+  "_where": "C:\\Users\\USER\\WebstormProjects\\nodeProject",
+  "dependencies": {},
+  "description": "Provides UI of snap and slide",
+  "devDependencies": {
+    "uglify-js": "^2.4.15"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "54b2603eb11d054333e0c1afb9f173d78bada11a",
+    "tarball": "https://registry.npmjs.org/flipsnap/-/flipsnap-0.6.3.tgz"
+  },
+  "gitHead": "9aabbf722dfdd27ff80cbc665ce33f2cb9a9a0dd",
+  "homepage": "https://github.com/hokaccha/js-flipsnap",
+  "keywords": [
+    "mobile",
+    "ui",
+    "browser"
+  ],
+  "license": "MIT",
+  "main": "./flipsnap.js",
+  "maintainers": [
+    {
+      "name": "hokaccha",
+      "email": "k.hokamura@gmail.com"
+    }
+  ],
+  "name": "flipsnap",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/hokaccha/js-flipsnap.git"
+  },
+  "scripts": {
+    "min": "uglifyjs flipsnap.js > flipsnap.min.js",
+    "test": "phantomjs test/lib/mocha-phantomjs.coffee test/index.html"
+  },
+  "version": "0.6.3"
+}

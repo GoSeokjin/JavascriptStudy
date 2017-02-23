@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    var makeConnectionTime = function () {
+        return Math.round(Math.random() * 1500);
+    };
+
+    function getUserApi(url, callback) {
+        setTimeout(function () {
+            var api = {username: '고석진'};
+            callback(JSON.stringify(api));
+        }, makeConnectionTime());
+    }
+
+
+    function getLocationInfo(url, callback) {
+        setTimeout(function () {
+            var api = {x: 111, y: 222, location: '판교'};
+            callback(JSON.stringify(api));
+        }, makeConnectionTime());
+    }
+
+
+    function getLolApi(url, callback) {
+        setTimeout(function () {
+            var api = {'id': 'troll119', 'rank': 'bronze'};
+            callback(JSON.stringify(api));
+        }, makeConnectionTime());
+    }
+
+
+
+</script>
+</html>

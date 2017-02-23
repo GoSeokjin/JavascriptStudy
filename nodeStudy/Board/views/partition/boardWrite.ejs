@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Project</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="css/mainCss.css" rel="stylesheet">
+    <link href="css/board/boardCss.css" rel="stylesheet">
+</head>
+<body>
+<div class="header" style="background-color: <%= color %>">
+    <% include ../main/header.ejs %>
+</div>
+<div class="main">
+    <div class="boardWirte">
+        <form href="/boardWrite" method="post">
+            <div class="boardType">
+                <label>타입</label>
+                <select>
+                    <option>공지사항</option>
+                    <option>일반</option>
+                </select>
+            </div>
+            <div class="boardType">
+                <label>제목</label>
+                <input type ="text">
+            </div>
+            <div class="boardType">
+                <label>작성자</label>
+                <input type ="text">
+            </div>
+            <div class="boardType">
+                <label>첨부파일</label>
+                <input type ="file">
+            </div>
+            <div id="summernote"></div>
+            <div class="boardType">
+                <button class="btn-primary">뒤로가기</button>
+                <button>작성</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <% include ../main/footer.ejs %>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/mainJs.js"></script> <!-- 메인 헤더 init -->
+<script>
+    var simplemde = new SimpleMDE();
+</script>
+</html>

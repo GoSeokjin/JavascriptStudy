@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 렌더링 되는 위치 -->
+    <div id="app">
+
+    </div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+    ReactDOM.render(
+        React.DOM.h1(null , "Hello world!"),  // React.DOM은 html의 dom 객체를 이야기한다 .  첫번째인자는 DOM의 속성을 정해줄수있다
+                                              // h1({ id : 'h1-tag'} , "Hello world");
+        document.getElementById("app")
+    );
+</script>
+</html>

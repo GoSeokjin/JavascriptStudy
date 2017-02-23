@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .container {
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img_container {
+            width: 3000px;
+            position: absolute;
+        }
+
+        .img_container img {
+            width: 600px;
+            height: 400px;
+            float: left;
+        }
+
+        .navWrap {
+            position: absolute;
+            bottom: 10px;
+            left: 43%;
+        }
+
+        .navWrap li {
+            list-style: none;
+            float: left;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            margin-left: 2px;
+            border: 3px #a72525 solid;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+        }
+
+        .navWrap .on {
+            background: #f90006;
+        }
+
+        .container .banner_navi {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .container .banner_navi img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="img_container" id="img_container">
+        <img class="item" id="page"
+             src="http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13744284_1775363152711656_1354804921_n.jpg?ig_cache_key=MTMxMjc4MTYzNTQ4MTE3OTA1NQ%3D%3D.2">
+        <img class="item" id="page" src="http://cdn.themeset.cogul.co.kr/195c5106_04slide.png">
+        <img class="item" id="page"
+             src="http://mblogthumb1.phinf.naver.net/20160629_244/bjy0524_1467200892317vS7QF_JPEG/attachImage_2339367055.jpeg?type=w800">
+        <img class="item" id="page" src="http://img.insight.co.kr/static/2016/01/28/2000/2gy609xoxco39boes4nu.jpg">
+        <img class="item" id="page" src="http://cfile29.uf.tistory.com/image/23252436581C30611F8369">
+    </div>
+    <div class="navWrap">
+        <li class='on'></li>
+    </div>
+    <div class="banner_navi" id="banner_navi">
+        <img id="btn_left" src="./좌.png"/>
+        <img id="btn_right" src="./우.png"/>
+    </div>
+</div>
+</body>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function ($) {
+            var pageIndex = 1;
+            var width = $('#img_container img').width();
+            var pageLen = $('#img_container #page').length;
+            var SHOW_DURATION = 200;
+            var container = $('#img_container');
+            var handler = null;
+            var flag = false;
+
+            function init() {
+                var first = $('#img_container img:first-child').clone();
+                var last = $('#img_container img').eq(pageLen - 1).clone();
+                //사진 추가
+                container.prepend(last);
+                container.append(first);
+                container.css({left: -width});
+                // 네비게이션 사진 갯수에따라
+                for (var i = 0; i < pageLen - 1; i++) {
+                    $('.navWrap').append("<li></li>");
+                }
+                //화면 크기
+                $('.img_container').css({'width': pageLen * width + 1200});
+            };
+
+            function startInterval() {
+                if (handler == null) {
+                    handler = setInterval(function () {
+                        moveContent(pageIndex + 1);
+                    }, 3000);
+                }
+                ;
+            };
+
+            function stopInterval() {
+                clearInterval(handler);
+                handler = null;
+            };
+
+            function check() {
+                if (flag) {
+                    return flag;
+                } else {
+                    flag = true;
+                    return false;
+                }
+                ;
+            };
+
+
+            var lBtn = function () {
+                $("#btn_left").on("click", function () {
+                    $(this).off("click");
+                    stopInterval();
+                    pageIndex -= 1;
+                    movePoint(pageIndex);
+                    moveContent(pageIndex);
+                });
+            };
+
+            var rBtn = function () {
+                $("#btn_right").on("click", function () {
+                    stopInterval();
+                    $(this).off("click");
+                    pageIndex += 1;
+                    movePoint(pageIndex);
+                    moveContent(pageIndex);
+                });
+            };
+
+            function moveContent(index) {
+                if (check())return;
+                var position = -width * index;
+                container.stop();
+                container.animate({left: position}, SHOW_DURATION, function () {
+                    //이전 내용 x
+                    if (index < 1) {
+                        index = pageLen;
+                        position = -width * index;
+                        container.css({'left': position + 'px'});
+                    }
+                    ;
+                    //이후내용 x
+                    if (index > pageLen) {
+                        index = 1;
+                        position = -width * index;
+                        container.css({'left': position + 'px'});
+                    }
+                    ;
+                    flag = false;
+                    pageIndex = index;
+                    movePoint(pageIndex);
+                    rBtn();
+                    lBtn();
+                    startInterval();
+                });
+            };
+
+            var movePoint = function (index) {
+                $('.navWrap li').removeClass('on');
+                $('.navWrap li').eq(index - 1).addClass('on');
+            };
+
+            init();
+            lBtn();
+            rBtn();
+            startInterval();
+
+            $('.navWrap li').on('click', function () {
+                stopInterval();
+                var current = $('.navWrap li').index($(this));
+                console.log(current);
+                moveContent(current + 1);
+            });
+        }(jQuery)
+    );
+</script>
+
+
+</html>

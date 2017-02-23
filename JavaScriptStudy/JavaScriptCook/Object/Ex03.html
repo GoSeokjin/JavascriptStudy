@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //객체의 기능 상속하기
+    function origObject(){
+        this.val1 = 'a';
+        this.val2 = 'b';
+    }
+
+    origObject.prototype.returnVal1 = function(){
+        return this.val1;
+    }
+    origObject.prototype.returnVal2 = function(){
+        return this.val2;
+    }
+
+    function newObject(){
+        this.val3 = 'c';
+        origObject.call(this);  // 매세드 체이닝을위해 인수목록을 전달할시는 apply를 사용
+    }
+
+    newObject.prototype = Object.create(origObject.prototype);  //상속을 가능케한다
+    newObject.prototype.constructor = newObject;    // 새로운 객체의 생성자 함수
+
+    newObject.prototype.getValues = function(){
+        return this.val1 + this.val2 + this.val3;
+    }
+
+    var obj = new newObject();
+
+    console.log(obj instanceof newObject); //true
+    console.log(obj instanceof origObject); //ture
+
+    console.log(obj.getValues()); // a b c
+
+
+
+
+    //ex2
+    function Book(title , author){
+        this.getTitle = function(){
+            return "title : " + title;
+        };
+        this.getAuthor = function(){
+            return "Author : " + author;
+        }
+    }
+
+    function TechBook(title , author , category){
+        this.getCategory = function(){
+            return "Technical : " + category;
+        }
+        this.getBook = function(){
+            return this.getTitle() + " " + author + " " + this.getCategory();
+        }
+        Book.apply(this , arguments);
+    }
+
+    TechBook.prototype = Object.create(Book.prototype);
+    TechBook.prototype.constructor = TechBook;
+
+    var newBook = new TechBook("The Javascript cookBook" , "Shelly Powers" , "Programming");
+    console.log(newBook.getBook());
+    console.log(newBook.getTitle());
+    console.log(newBook.getAuthor());
+    console.log(newBook.getCategory());
+
+
+
+</script>
+</html>

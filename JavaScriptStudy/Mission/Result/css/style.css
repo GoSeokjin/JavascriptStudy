@@ -1,0 +1,98 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.main_wrap {
+    width: 403px;
+    height: 200px;
+    background-color: #FFDD51;
+    position: relative;
+    left : 30px;
+    top : 30px;
+}
+.content_wrap{
+    width: 100%;
+    height: 100%;
+    background-color: #FFDD51;
+    position: relative;
+    overflow: hidden;
+}
+.content{
+    position: relative;
+    width: 98.5px;
+    height: 99%;
+    background-color: #FFDD51;
+    float: left;
+    border: 0.5px solid;
+}
+.content_list{
+    position: relative;
+    width: 80px;
+    height: 90%;
+    margin: 10%;
+    background-color: #fff;
+}
+.viewPage{
+    float: left;
+    padding: 3px 0px 3px 5px;
+}
+.viewBtn{
+    float: right;
+}
+.content img{
+    position: absolute;
+    width: 100%;
+    height: 70%;
+}
+.content_text{
+    position: absolute;
+    background: yellow;
+    top:80%;
+    left : 25%;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+  //다른프로그램에서 재정의하거나 수정할 수 없도록 만들고 싶을때
+    'use strict';
+
+    var test = {
+        value1 : 'one',
+        value2 : function(){
+            return this.value1;
+        }
+    }
+
+    try{
+        Object.freeze(test); //객체 동결하기
+
+        //스트릭모드에서 다음은 오류 발생한다
+        test.value2 = 'two';
+        test.newProperty = 'value';
+
+        var val = 'test';
+
+        Object.defineProperty(data , "category" , {
+            get : function(){return group;},
+            set : function(value) {group = value},
+            enumerable : true,
+            configurable : true
+        });
+    }catch (e){
+        console.log(e);
+    }
+
+        //freeze는 객체를 확장할 수도없고 속성서술자를 변경할 수도없습니다 객체가 동결된다 말그대로의 메서드입니다.
+
+
+</script>
+</html>

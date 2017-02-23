@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form id="picker">
+    <label> val 1</label> <input type="text" value="one"><br>
+    <label> val 2</label> <input type="password" value="two"><br>
+    <label> val 3</label> <input type="password" value="three"><br>
+    <label> val 4</label> <input type="password" value="four">
+    <button id="validate">validate</button>
+</form>
+<div id="result"></div>
+</body>
+<script>
+    document.getElementById('validate').addEventListener("click" , function(e){
+        e.preventDefault();
+
+        //요소 키값 배열 만들기
+        var elems = document.getElementById('picker').elements;
+        var elemArray  = new Object();
+        for(var i = 0;i<elems.length;i++){
+            if(elems[i].type == "text") elemArray[elems[i].id] = elems[i].value;
+        }
+        var str ='';
+        Object.keys(elemArray).forEach(function(key){
+           var value = elemArray[key];
+           str+=key + '->' + value;
+        });
+        document.getElementById('result').innerText =str;
+    } , false );
+
+
+</script>
+</html>

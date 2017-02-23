@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //Ex1
+    function Tune(song, artist) {
+        var title = song;
+        this.concat = function () {  //이것만 공개
+            return title + " " + artist;
+        }
+    }
+    Tune.prototype.addCategory = function(categoryName){
+        this.category = categoryName;
+    }
+
+    // Ex2
+    var str = 'one';
+
+    String.prototype.exclaim = function(){
+        if(this.length == 0) return this;
+        return this + '!';
+    }
+
+    var str2 = 'two';
+
+    console.log(str.exclaim()); //one!
+    console.log(str2.exclaim()); //two!
+
+
+</script>
+</html>

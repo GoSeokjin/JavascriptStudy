@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //함수의 인수에 arr기능을 사용하고싶은데 arguments객체가 배열이 아니다.
+
+    //1번쨰 방법
+    function someFunc(){
+        var args = Array.prototype.call(arguments);
+    }
+    //2번쨰 방법
+    function someFunc(){
+        var args = [].slice.call(arguments);
+    }
+
+    //arguments는 함수로 전달되는 모든 인수로 구성된 배열처럼 생긴 객체다.
+    //사용할수 있는것은 length뿐이다.
+
+    function sum(){
+        var args = [].slice.call(arguments); //얕은복사 , Nodelist에서도 사용할 수 있다.
+        return args.reduce(function(val1 , val2){
+           return parseInt(val1 , 10) + parseInt(val2 , 10);
+        });
+    }
+    var sum = sum(10,3,4,502,3,4);
+    console.log('sum : ' , sum);
+
+
+</script>
+</html>

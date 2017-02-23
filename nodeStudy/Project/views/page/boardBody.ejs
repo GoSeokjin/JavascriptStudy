@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Project</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../css/main/mainPage.css">
+    <link rel="stylesheet" href="../../css/board/boardMainPage.css">
+    <style>
+        .btn-product{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <div class="mail-box">
+        <aside class="sm-side">
+            <%include ../partition/mainHeader.ejs%>
+            <%include ../partition/mainMenu.ejs%>
+        </aside>
+        <aside class="lg-side">
+            <div class="inbox-body">
+                <div class="mail-option">
+                    <div class="btn-group">
+                        <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
+                            <i class=" fa fa-refresh"></i>
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <a data-toggle="dropdown" href="#" class="btn mini blue">
+                            Move to
+                            <i class="fa fa-angle-down "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#joinModal"  data-toggle="modal" title="Compose"><i class="fa fa-pencil"></i> 글쓰기 </a></li>
+                        </ul>
+                    </div>
+                    <ul class="unstyled inbox-pagination">
+                        <li><span>1-50 of 234</span></li>
+                        <li>
+                            <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+                        </li>
+                        <li>
+                            <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <table class="table table-inbox table-hover">
+                    <tbody>
+                    <!--공지사항 -->
+                    <tr class="unread">
+                        <td class="inbox-small-cells">
+                            <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                        <td class="view-message  dont-show">PHPClass</td>
+                        <td class="view-message ">Added a new class: Login Class Fast Site</td>
+                        <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                        <td class="view-message  text-right">9:27 AM</td>
+                    </tr>
+                    <!-- 별없는놈 -->
+                    <tr class="">
+                        <td class="inbox-small-cells">
+                            <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                        <td class="view-message dont-show">JW Player</td>
+                        <td class="view-message">Last Chance: Upgrade to Pro for </td>
+                        <td class="view-message inbox-small-cells"></td>
+                        <td class="view-message text-right">March 15</td>
+                    </tr>
+                    <!-- 별있고 빨간 버튼있는놈 -->
+                    <tr class="">
+                        <td class="inbox-small-cells">
+                            <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
+                        <td class="view-message dont-show">Freelancer.com <span class="label label-danger pull-right">urgent</span></td>
+                        <td class="view-message">Stop wasting your visitors </td>
+                        <td class="view-message inbox-small-cells"></td>
+                        <td class="view-message text-right">May 23</td>
+                    </tr>
+                    <!--별있고 초록버튼-->
+                    <tr class="">
+                        <td class="inbox-small-cells">
+                            <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                        <td class="view-message dont-show">Drupal Community<span class="label label-success pull-right">megazine</span></td>
+                        <td class="view-message view-message">Welcome to the Drupal Community</td>
+                        <td class="view-message inbox-small-cells"></td>
+                        <td class="view-message text-right">March 04</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <!--모달 테스트 -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="joinModal" class="modal fade" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            <h4 class="modal-title">글쓰기</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" class="form-horizontal" action="/board" method="post">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Title</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" placeholder="이메일을 입력해주세요" name="board[boardTitle]" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Writer</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" value="<%=user.username%>" name="board[boardWriter]" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Content</label>
+                                    <div class="col-lg-10">
+                                        <textarea class="form-control" rows="3" name="board[boardContent]"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button class="btn btn-send" type="submit">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </aside>
+    </div>
+</div>
+</body>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="js/flipsnap/flipsnap.js"></script>
+<script src="js/board/boardMainPage.js"></script>
+</html>

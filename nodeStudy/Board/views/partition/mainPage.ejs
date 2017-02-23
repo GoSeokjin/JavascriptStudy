@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Project</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="css/mainCss.css" rel="stylesheet">
+    <style>
+        .introPage{
+            width: 100%;
+            height: auto;
+        }
+        .introPage .introImg{
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<div class="mainWrap">
+    <div class="header">
+        <%include ../main/header.ejs%>
+    </div>
+    <div class="main">
+        <div class="introPage">
+            <img class="introImg" src="img/mainImg/mainImg1.png">
+            <img class="introImg" src="img/mainImg/mainImg2.png">
+            <img class="introImg" src="img/mainImg/mainImg4.png">
+            <img class="introImg" src="img/mainImg/mainImg3.png">
+        </div>
+    </div>
+    <div class="footer">
+        <%include ../main/footer.ejs%>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/mainJs.js"></script> <!-- 메인 헤더 init -->
+</html>

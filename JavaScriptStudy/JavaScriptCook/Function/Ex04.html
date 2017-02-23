@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //클로저를 이용해 상태저장
+    function greetingMaker(greeting){
+        function addName(name){
+            return greeting + " " + name;
+        }
+        return addName;
+    }
+
+    //새로운 부분 함수 만들기
+    var daytimeGreeting = greetingMaker("Good Day to you");
+    var nightGreeting = greetingMaker("Good Evening");
+
+    //낮일떄
+    console.log(daytimeGreeting("tom"));
+    //밤일때
+    console.log(nightGreeting("tom"));
+
+    //클로저는 메모리에 계속 상주하고있다 많이 선언을 할수록 메모리 문제가심해진다 유효범위해제되었을떄 메모리가 해제되지않으면 메모리 누수가 발생
+</script>
+</html>

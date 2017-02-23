@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Project</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="css/mainCss.css" rel="stylesheet">
+    <link href="css/board/boardCss.css" rel="stylesheet">
+</head>
+<body>
+<div class="header" style="background-color: <%= color %>">
+    <% include ../main/header.ejs %>
+</div>
+<div class="main">
+    <div class="boardMenu">
+        <ul class="boardPage">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div class="boardWriteBtn">
+            <a href="/boardWrite"><button>글작성</button></a>
+        </div>
+    </div>
+    <div class="viewContent">
+        <div class="boardContent">
+            asdasdasdasdasdasd
+        </div>
+        <div class="boardContent">
+
+        </div>
+        <div class="boardContent">
+
+        </div>
+        <div class="boardContent">
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <% include ../main/footer.ejs %>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/mainJs.js"></script> <!-- 메인 헤더 init -->
+</html>

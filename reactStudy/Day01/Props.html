@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 렌더링 되는 위치 -->
+<div id="app">
+
+</div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+   var Component = React.createClass({
+       render : function(){
+           return React.DOM.span(null , "my Name is " + this.props.name);  //this.props는 읽기전용이다. 부모컴포넌트에서 자식 컴포넌트로 구성을 전달하는데 유용하다.
+       }
+   });
+
+   ReactDOM.render(
+       React.createElement(Component , {
+           name : "Bob"
+       }),
+       document.getElementById('app')
+   )
+</script>
+</html>

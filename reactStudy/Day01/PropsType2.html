@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 렌더링 되는 위치 -->
+<div id="app">
+
+</div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+
+    var Component  = React.createClass({
+        propTypes: {
+            firstName : React.PropTypes.string.isRequired,
+            middleName : React.PropTypes.string,
+            familyName : React.PropTypes.string.isRequired,
+            address : React.PropTypes.string,
+        },
+        getDefalutProps : function(){ // 필수가 아닌요소들의 기본값을 정해는 메서드
+            return {
+                middleName : '' ,
+                address : 'n/a'
+            }
+        },
+        render : function(){
+            /*...*/
+        }
+    })
+
+</script>
+</html>

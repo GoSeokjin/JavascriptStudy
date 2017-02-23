@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 렌더링 되는 위치 -->
+    <div id="app">
+
+    </div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+    var component = React.createClass({
+        render : function(){
+            return React.DOM.span(null , "I'm so sorry");
+        }
+    });
+
+    //1번째 방법
+    /*ReactDOM.render(React.createElement(component), document.getElementById('app'));*/
+
+    //여러개를 만들어야할때
+    var ComponentFactory = React.createFactory(component);
+
+    ReactDOM.render(ComponentFactory() , document.getElementById('app'));
+</script>
+</html>

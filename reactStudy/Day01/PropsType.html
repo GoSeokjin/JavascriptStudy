@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 렌더링 되는 위치 -->
+<div id="app">
+
+</div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+    var Component = React.createClass({
+        propsTypes : {
+            name : React.PropTypes.string.isRequired
+        },
+        render : function(){
+            return React.DOM.span(null , "My name is " + this.props
+                    .name);
+        }
+    });
+
+    ReactDOM.render(
+        React.createElement(Component , {
+
+    }),
+        document.getElementById('app')
+    );
+
+
+</script>
+</html>

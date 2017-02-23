@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 렌더링 되는 위치 -->
+    <div id="app">
+
+    </div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+    //중첩 컴포넌트
+    ReactDOM.render(
+        React.DOM.span({
+            id : 'h1-tag'
+        } , React.DOM.em( null , "Hello World")),  //중첩된 DOM을 그릴수 있다 span > em
+        document.getElementById("app")
+    );
+</script>
+</html>

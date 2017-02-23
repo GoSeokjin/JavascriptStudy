@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //부분함수를 사용해 중복 줄이기
+    //세개의 인수를 갖는 함수가 있는데 2가지의 인수가 특정 용도에따라 반복이 된다면
+
+    function makeString(ldlim , str , redlim){
+        return ldlim + str + redlim;
+    };
+
+    function quoteString(str) {
+        return makeString("'" , str , "'")
+    };
+
+    function barString(str){
+        return makeString("-" , str ,"-")
+    };
+
+    console.log(quoteString("사과"));
+    console.log(barString("수박"));
+
+</script>
+</html>

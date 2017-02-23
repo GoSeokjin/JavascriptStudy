@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>나이</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>나이</td>
+        <td>23</td>
+    </tr>
+    <tr>
+        <td>나이</td>
+        <td>32</td>
+    </tr>
+</table>
+</body>
+<script>
+    //querySelector 을 사용해 두번째 테이블 셀 모두찾기
+    var cells = document.querySelectorAll("td + td");
+    var sum = 0;
+    console.log(cells); //nodeList 3개 배열이 아니다
+
+    [].forEach.call(cells, function (cell) {  //NodeList는 배열이 아니기떄문에 foreach를 사용할수없음 call로 배열처럼 흉내를 냈음
+        sum += parseFloat(cell.firstChild.data);
+    });
+    console.log(sum);  // 65
+
+    //10진수 배열 > 16진수배열로 변경
+    var decArray = [23, 44, 32, 11, 22, 43, 28];
+    var hexArray = decArray.map(function (element) {
+        return element.toString(16);
+    });
+    console.log(hexArray.toString()); //17,2c,20,b,16,2b,1c 원본배열과는 무관한 새로운 배열을 만들어준다.
+
+    //필터링된 배열을 만들어주고 싶다.
+    var charSet = ["**", "B", "C", "D", "E", "F"];
+
+    var newArray = charSet.filter(function(element){ //filter는 true false를 반환함 false반환시 리턴값이 없다.
+       return (element !== "**");
+    });
+
+    console.log(newArray); //["B", "C", "D", "E", "F"]
+
+</script>
+</html>

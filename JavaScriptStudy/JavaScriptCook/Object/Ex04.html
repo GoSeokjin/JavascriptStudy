@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //새로운 속성을 정의하여 객체 확장
+    //type : 초기설정값이며 교체할 수 없음 삭제 수정할 수는 없으나 열거할 수는 있음
+    //id : 초기 설정값이며 교체할수 있음 삭제 또는 수정할 수 없고 열거할 수는 없음
+
+    var data = {};
+
+    Object.defineProperty(data , 'type' ,{
+        value : 'primary',
+        enumerable : true
+    });
+
+    console.log(data.type); // 속성값 primary
+
+    data.type = 'secondary';
+    console.log(data.type); // 아직 primary
+
+    Object.defineProperty(data , 'id' ,{
+        value : 1,
+        writable : true
+    });
+
+    console.log(data.id);
+
+    Object.defineProperty(data, id ,{
+        value : 1,
+        writable : ture
+    });
+
+    console.log(data.id); //1
+
+    data.id = 300;
+    console.log(data.id)//300
+
+    for(prop in data){
+        console.log(prop); // 타입만 표시
+    }
+
+    //Ex02
+    var data = {}
+    var group = 'history';
+
+    Object.defineProperty(data , "category" , {
+        get : function(){return group;},
+        set : function(value) {group = value},
+        enumerable : true,
+        configurable : true
+    });
+
+    console.log(data.category);// history
+    group = "Math";
+    console.log(data.category);// Math
+
+
+
+
+</script>
+</html>

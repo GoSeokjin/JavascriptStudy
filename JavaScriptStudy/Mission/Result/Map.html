@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="view">
+
+    </ul>
+</body>
+<script>
+    var ul = document.getElementById('view');
+    var arr = ["A","B","C","D"];
+    var style = ["red", "blue" , "yellow" , "green"];
+
+    var map = function(arr , callback){
+       var result = [];
+       for(var i = 0;i< arr.length ; i++){
+          result.push(callback(arr[i] , i));
+       };
+       return result;
+    };
+    var n = map(arr , function(value , idx){
+        var li = '<li style="color:'+style[idx]+'">'+ value +'</li>';
+        return li;
+    });
+    console.log(n);
+
+
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //문자열을 역순으로 출력
+    var reverseArray = function(x , indx , str){
+        return indx == 0 ? str : reverseArray(x , --indx , (str+= " " + x[indx]));
+    };
+
+    var arr = ["A","B","C","D","E"];
+    var str = reverseArray(arr , arr.length , "");
+    console.log(str);
+
+    //피보나치
+    var fibonacci = function(n){
+        return n<2 ? n : fibonacci(n-1) + fibonacci(n-2);
+    }
+    console.log(fibonacci(10));
+
+    //팩토리얼
+    var factoria = function(n){
+        return n==1?n : n * factoria(n-1);
+    }
+    console.log(factoria(5));
+</script>
+</html>
