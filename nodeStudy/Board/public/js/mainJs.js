@@ -20,6 +20,18 @@ $(function ($) {
                 }
             });
         };
+        var chatTouch = function(){
+            var searchBtn = $('.searchBtn');
+            var chat = $('.chat');
+            searchBtn.on('click' , function(e){
+                var chatState = chat.css('bottom');
+                if(chatState == 0+'px'){
+                    chat.animate({'bottom' :  -400+'px'});
+                }else{
+                    chat.animate({'bottom' : 0+'px'});
+                }
+            });
+        };
         //위치에따른 헤더변환
         var headerBtn = function () {
             var headerTitle = $('.headerTitle');
@@ -40,23 +52,12 @@ $(function ($) {
                 }
             });
         };
-        //검색창
-        var searchBtn = function(){
-            var searchBtn = $('#searchBtn');
-            var searchText = $('#searchText');
-            searchBtn.on('click' , function(e){
-                console.log('hoho');
-                searchText.css({visibility : 'visible'});
-                searchText.animate({visibility : 'visible' , width: 100+'px'},300);
-            });
-        };
-
 
         return {
             slideMenu: slideMenu(),
             bodyTouch: bodyTouch(),
             headerBtn: headerBtn(),
-            searchBtn :searchBtn()
+            chatTouch :chatTouch()
         }
     };
     init();

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Book(title , author){
+        this.getTitle =  function(){
+            return "Title : " + title;
+        };
+
+        this.getAuthor = function(){
+            return "Author :" + author;
+        };
+
+        this.replaceTitle = function(newTitle){
+            var oldTitle = title;
+            title = newTitle ;
+        };
+        this.replaceAuthor = function(newAuthor){
+            var oldAuthor = author;
+            author = newAuthor;
+        };
+    }
+    function TechBook(title , author , category){
+        this.getCategory = function(){
+            return "Technical Category : " +  category;
+        };
+
+        Book.apply(this, arguments);
+
+        this.changeAuthor = function(newAuthor){
+            this.replaceAuthor(newAuthor);
+            return this; //체이닝에 필요
+        }
+    }
+    var newBook= new TechBook("I konw things" , "Smart Author" , "tech");
+    console.log(newBook.changeAuthor("Book k. Reader").getAuthor());
+
+</script>
+</html>

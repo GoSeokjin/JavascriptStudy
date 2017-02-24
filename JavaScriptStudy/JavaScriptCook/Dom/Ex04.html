@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demodiv{
+            width: 100px;
+            height: 100px;
+            background-color: #6f001b;
+        }
+    </style>
+</head>
+<body>
+<div id="demodiv"> <!--식별자 부여-->
+
+</div>
+</body>
+<script>
+
+    //특정 웹페이지 요소에 스타일 설정을 추가하거나 대체
+    var elem = document.getElementById('demodiv');
+    elem.style.backgroundColor = 'red'; // 한개의 속성
+
+    //여러개의 속성
+    elem.setAttribute("style","background-color: red ; color:white;");
+
+    //기존 속성 가져오기 getAttribute
+    elem.getAttribute("class");
+
+    //스타일설정에 접근 , 요소의 특정 스타일이 보고싶을떄
+    //getComoutedStyle 메서드가 있습니다 하지만 IE8이전 버전은 메서드를 지원하지않아 currentStyle를 사용하면 크로스 브라우저를 지원할 수 있습니다.
+
+    var bkcolor = elem.currentStyle ? elem.currentStyle['backgroundColor']: window.getComputedStyle(elem).getPropertyValue("background-color"); //rgb(255, 0, 0)
+    console.log(bkcolor);
+
+
+</script>
+</html>

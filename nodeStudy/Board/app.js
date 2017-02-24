@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./route/index');
 var boardRouter = require('./route/boardRouter');
 var mongoose = require('./model/mongoose');
+var io = require('./public/js/socket')();
 
 app.set('view engine' , 'ejs');
 app.set('views' , __dirname +'/views');

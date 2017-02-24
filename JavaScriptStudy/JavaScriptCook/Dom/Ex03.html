@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demodiv"> <!--식별자 부여-->
+    <p>This is text</p>
+    <p>This is text</p>
+</div>
+</body>
+<script>
+
+    //요소컬렉션을 모두 탐석하지말고 article요소의 자손노드로 있는 img요소의 목록을 모두 구하고싶을때
+    var imgs = document.querySelectorAll("article img");
+
+    //직계자손인 img만 구하고 싶을때
+    var imgs = document.querySelectorAll("article > img");
+
+    //문단이 바로뒤에 나오는 모든 img요소
+    var imgs = document.querySelectorAll(" img  + p ");
+
+    //alt속성을 가진 img요소
+    var imgs = document.querySelectorAll('img[alt=""]');
+
+    //alt속성을 갖지 안흔ㄴ img 요소
+    var imgs = document.querySelectorAll('img:not([alt=""])');
+
+</script>
+</html>

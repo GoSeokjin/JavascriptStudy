@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demodiv"> <!--식별자 부여-->
+    <p>This is text</p>
+    <p>This is text</p>
+</div>
+</body>
+<script>
+
+    //주어진 문서의 모든 img요소에 접근
+    var imgElements = document.getElementsByTagName('img'); //노드 컬렉션 리스트를 반환
+    //노드리스트를 탐색할순있어도 Array가 아니다
+    for (var i = 0; i < imgElements.length; i++) {
+        var img = imgElements[i];
+    }
+
+    //요소 추가
+    var imgs = document.getElementsByTagName('img');
+    //태크생성
+    var p = document.createElement("p");
+    var img = document.createElement("img");
+    img.src = "something.jpg";
+
+    p.appendChild(img);
+    //요소에 붙이기
+    var paras = document.getElementsByTagName('p');
+    paras[0].parentNode.appendChild(p);
+
+    console.log(imgs.length);
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="demodiv"> <!--식별자 부여-->
+        <p>This is text</p>
+        <p>This is text</p>
+    </div>
+</body>
+<script>
+    var demodiv = document.getElementById('demodiv');
+
+    //부모요소
+    var parent = demodiv.parentNode;
+
+    //자식요소
+    var children = demodiv.childNodes;
+
+    //요소가 어떤 자식 노드를 가지고 있는지 알고싶을때
+    var outputString = "";
+    if(demodiv.hasChildNodes()){
+        var children = demodiv.childNodes;
+        for(var i=0;i<children.length;i++){
+            outputString += "has child" + children[i].nodeName + " ";
+        }
+    }
+    console.log(outputString); //has child#text has child#comment has child#text has childP has child#text
+
+</script>
+</html>

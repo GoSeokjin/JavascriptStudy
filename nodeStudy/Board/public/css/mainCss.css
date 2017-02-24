@@ -67,14 +67,79 @@ table {
 .header .headerBtn .searchBtn{
     float: right;
 }
-.header .headerBtn .searchBtn input{
-    visibility: hidden;
-    border:none;
-    boder-bottom:1px solid #ff62a7;
-    width: 0px;
-    vertical-align : 10px;
-    background-color: transparent;
+/* 채팅 */
+.header .headerBtn .chat{
+    position: fixed;
+    bottom: -400px;
+    right: 30px;
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
 }
+.header .headerBtn .chat .chatHeader{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #00bcd4;
+    font-size: 30px;
+    color: #fff;
+}
+.header .headerBtn .chat .chatHeader .chatImg{
+    position: absolute;
+    background-color: #00bcd4;
+}
+.header .headerBtn .chat .chatHeader .headerInfo{
+    position: absolute;
+    background-color: #00bcd4;
+    left: 60px;
+    top: 15px;
+}
+.header .headerBtn .chat .chatMain{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.header .headerBtn .chat .chatMain .reciveMessage{
+    width: 100%;
+    margin: 5px 0px 5px 10px;
+}
+.header .headerBtn .chat .chatMain .sendMessage{
+    margin: 5px 10px 5px 80px;
+    width: 100%;
+}
+.header .headerBtn .chat .chatMain .messageBox{
+    width: 70%;
+    font-size: 20px;
+    height: auto;
+    background-color: #afafaf;
+}
+.header .headerBtn .chat .chatFooter{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 0;
+    background-color: #afafaf;
+    overflow: hidden;
+}
+.header .headerBtn .chat .chatFooter .chatInput{
+    width: 80%;
+    float: left;
+}
+.header .headerBtn .chat .chatFooter .chatInput input{
+    width: 100%;
+    height: 30px;
+}
+.header .headerBtn .chat .chatFooter .chatBtn{
+    float: right;
+    width: 20%;
+}
+.header .headerBtn .chat .chatFooter .chatBtn button{
+    width: 100%;
+    height: 30px;
+}
+
+    /* 헤더 타이틀 */
 .header .headerTitle{
     position: absolute;
     top: 90px;
@@ -82,6 +147,7 @@ table {
     left : 70px;
     color : #fff;
 }
+
 .header .subTitle{
     visibility: hidden;
     position: absolute;
