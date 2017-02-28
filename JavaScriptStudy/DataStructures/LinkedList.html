@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    function LList(){
+        this.head = new Node("head");
+        this.find = find;
+        this.insert = insert;
+        this.remove = remove;
+        this.display = display
+    }
+
+    function find(item){
+        var currNode = this.head;   //현재노드
+        while (currNode.element != item){
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+
+</script>
+</html>

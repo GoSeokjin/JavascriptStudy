@@ -1,6 +1,8 @@
 import React from 'react';
+import update from 'react-addons-update'; // 배열 변경을 좀더 쉽게하기위해
 import ContactInfo from './ContactInfo';
-import ContactDetalis from './ContactDetalis'
+import ContactDetalis from './ContactDetalis';
+import ContactCreate from './ContactCreate';
 
 export default  class Contact extends React.Component {
     constructor(props) {
@@ -27,6 +29,9 @@ export default  class Contact extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this); // this가 누군지를 알려줘야한다.
         this.handleClick = this.handleClick.bind(this);
+        this.handleCreate = this.handleCreate.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
     handleChange(e){
         this.setState({
@@ -39,7 +44,37 @@ export default  class Contact extends React.Component {
         });
         console.log(key , 'ist selected');
     };
+    handleCreate(){
+        this.setState({
+            contactData : update(
+                this.state.contactData ,
+                {$push  : [contact]}
+            )
+        })
+    };
+    handleEdit(name , phone){
+        this.setState({
+            contactData : update(
+                this.state.contactData,
+                {
+                    [this.state.selectedKey] : {
+                        name : {$set : name},
+                        phone : {$set : phone}
+                    }
+                }
+            )
+        })
+    }
 
+    handleRemove(){
+        this.setState({
+            contactData : update(
+                this.state.contactData,
+                {$splice : [[this.state.selectedKey , 1]]}
+            ),
+            selectedKey : -1
+        });
+    };
 
     render(){
         const mapToComponents = (data) =>{
@@ -56,9 +91,12 @@ export default  class Contact extends React.Component {
         return (
             <div>
                 <h1>Contacts</h1>
-                <input name ="keyword" placeholder="Search" vlaue={this.state.keyword} onChange={this.handleChange}/>
+                <input name ="keyword" placeholder="Search" value={this.state.keyword} onChange={this.handleChange}/>
                 <div>{mapToComponents(this.state.contactData)}</div>
                 <ContactDetalis isSelected={this.state.selectedKey != -1 } contact={this.state.contactData[this.state.selectedKey]}/>
+                <ContactCreate
+                onCreate = {this.handleCreate}
+                />
             </div>
         )
     }

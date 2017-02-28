@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    'use strict'
+    // 팩토리얼 스택으로 구성하기
+    function Stack(){
+        this.dataStore = [];
+        this.top = 0;
+        this.push = push;
+        this.pop = pop;
+        this.peek = peek;
+        this.length = length;
+    }
+
+    function push(element){
+        this.dataStore[this.top++] = element;
+    }
+    function pop(){
+        return this.dataStore[--this.top];
+    }
+    function peek(){
+        return this.dataStore[this.top-1];
+    }
+    function length(){
+        return this.top;
+    }
+
+    function fact(num){
+        var s = new Stack();
+        while(num > 1){
+            console.log(num);
+            s.push(num--)
+        }
+        var product= 1;
+        while(s.length() > 0){
+            product *= s.pop();
+            console.log(product);
+        }
+        return product;
+    }
+    console.log(fact(5));
+</script>
+</html>

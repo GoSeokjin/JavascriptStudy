@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 렌더링 되는 위치 -->
+<div id="app">
+
+</div>
+</body>
+<script src="../react/react.js"></script>
+<script src="../react/react-dom.js"></script>
+<script>
+
+    var TextAreaCounter = React.createClass({
+        _log : function(methodName , args){
+            consle.log(methodName , args);
+        },
+        componentWillUpdate : function(){ //프로퍼티 상태의 변경에 의해 컴포턴트의 render() 메서드가 호출되기 전에 실행된다.
+            this._log('componentWillUpdate' , arguments);
+        },
+        componentDidUpdate : function(){ // render()메서드가 작업을 완료하고 기반 DOM의 새로운 변경하상이 적용된 후에 실행
+            this._log('componentDidUpdate' , arguments);
+        },
+        componentWillMount : function(){
+            this._log('componentWillMount' , arguments); // 노드가 DOM에 삽이되기전에
+        },
+        componentDidMount : function(){
+            this._log('componentDidMount' , arguments); // 노드가 DOM에 삽인된후에
+        },
+        componentWillUnmount : function(){ //컴포넌트가 DOM에서 제거되기 직전에
+            this._log('componentWillUnmount' , arguments);
+        }
+    });
+
+</script>
+</html>

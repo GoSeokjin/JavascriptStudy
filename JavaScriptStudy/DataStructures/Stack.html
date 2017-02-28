@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    'use strict'
+
+    function Stack(){
+        this.dataStore = [];
+        this.top = 0;
+        this.push = push;
+        this.pop = pop;
+        this.peek = peek;
+        this.length = length;
+    }
+
+    function push(element){
+        this.dataStore[this.top++] = element;
+    }
+    function pop(){
+        return this.dataStore[--this.top];
+    }
+    function peek(){
+        return this.dataStore[this.top-1];
+    }
+    function length(){
+        return this.top;
+    }
+
+    var s = new Stack();
+    s.push("A");
+    s.push("B");
+    s.push("C");
+    console.log("length : " , s.length());
+    console.log('peek : ' ,s.peek());
+
+    var popped = s.pop();
+    console.log('The poped element is : ' , popped);
+    console.log('s popped : ' , s.peek());
+</script>
+</html>
