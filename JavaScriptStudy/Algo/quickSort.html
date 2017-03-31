@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = [10,3,12,44,8,11];
+
+    var quickSort = function(arr) {
+        if (arr.length == 0) {
+            return [];
+        }
+        var pibot = arr[0];
+        var left = [], rigth = [];
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] < pibot) {
+                left.push(arr[i])
+            } else if (arr[i] > pibot) {
+                rigth.push(arr[i])
+            }
+        }
+        return quickSort(left).concat(pibot, quickSort(rigth));
+    };
+    console.log(quickSort(arr));
+
+</script>
+</html>
