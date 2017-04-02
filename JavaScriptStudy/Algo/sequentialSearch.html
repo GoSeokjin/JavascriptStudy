@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    // 순차 탐색
+    // 수행시간 최악 , 평균 : O(n)
+    var arr = [10,3,12,44,8,11];
+
+    function sequentialSearch(searchNumber){
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] === searchNumber){
+                return i;
+            }
+        }
+    }
+
+    var searchIndex = sequentialSearch(12);
+    console.log('12의 인덱스 : ' , searchIndex);
+</script>
+</body>
+</html>

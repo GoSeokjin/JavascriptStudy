@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function fact(num) {
+        var val = 1;
+        for (var i = 2; i <= num; i++) {
+            val = val * i;
+        }
+        return val;
+    }
+    console.log(fact(10));
+
+    function fact2(num){
+        if(num === 0){
+            return 1;
+        }else{
+            return num * fact(num-1);
+        }
+    }
+    console.log(fact2(10));
+
+    var fact3 = function(){
+        var cache = {'0' : 1};
+        var func = function(n){
+            var result = 0;
+            if(typeof(cache[n]) === 'number'){
+                return cache[n];
+            }else{
+                result = cache[n] = n * func(n-1);
+                console.log(cache);
+            }
+            return result;
+        };
+        return func;
+    }();
+
+    console.log(fact3(10));
+    console.log(fact3(20));
+</script>
+</body>
+</html>

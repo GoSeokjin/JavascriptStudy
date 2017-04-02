@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    //이진 탐색트리
+    // O(log n)
+    var arr = [10,3,12,44,8,11];
+
+    function binarySeacrh(searchNumber){
+        var left = 0;
+        var right = arr.length-1;
+        var mid = ((right-left+1)/2)+left;
+        while(left <= right){
+            if(arr[mid] === searchNumber){
+                return mid;
+            }else if(arr[mid] < searchNumber){
+                left = mid +1;
+                console.log('left',left);
+            }else{
+                right = mid -1;
+                console.log('right',right);
+            }
+            return '탐색실패';
+        }
+    }
+    var count = binarySeacrh(44);
+    console.log(count);
+</script>
+</body>
+</html>

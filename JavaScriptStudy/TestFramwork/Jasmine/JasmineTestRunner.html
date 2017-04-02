@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jasmine Test Runner</title>
+    <!-- Jasmine includes -->
+    <script type="text/javascript" src="https://searls.github.io/jasmine-all/jasmine-all-min.js"></script>
+    <!-- Source files -->
+    <script type="text/javascript" src="./HelloWorld.js"></script>
+
+    <!-- Spec files -->
+    <script type="text/javascript" src="spec/HelloWorldSpec.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+    jasmine.getEnv().execute();
+</script>
+</body>
+</html>
