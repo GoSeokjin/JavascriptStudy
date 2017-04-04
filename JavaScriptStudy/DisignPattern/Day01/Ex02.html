@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //new 객체 생성 패턴
+    function Marsupial(name , nocturnal) {
+        if(!(this instanceof Marsupial)){
+            throw new Error("이 객체는 new를 사용해서 생성하세요");
+        }
+        this.name = name;
+        this.isNocturanal = nocturnal;
+    }
+    Marsupial.prototype.isAwake = function(isNight){
+        return isNight === this.isNocturanal;
+    }
+
+    function Kangaroo(name){
+        if(!(this instanceof Marsupial)){
+            throw new Error("이 객체는 new를 사용해서 생성하세요");
+        }
+        this.name = name;
+        this.isNocturanal = false;
+    }
+    Kangaroo.prototype = new Marsupial();       //생성자 반복을 가져온다.
+    Kangaroo.prototype.hop = function(){
+        return this.name + '폴짝 폴짝';
+    };
+    var jster =new Kangaroo("제스터");
+    var isNightTime = false;
+
+
+</script>
+
+</body>
+</html>
