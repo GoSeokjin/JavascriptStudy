@@ -19,7 +19,6 @@
         <td>32</td>
     </tr>
 </table>
-</body>
 <script>
     //querySelector 을 사용해 두번째 테이블 셀 모두찾기
     var cells = document.querySelectorAll("td + td");
@@ -42,10 +41,11 @@
     var charSet = ["**", "B", "C", "D", "E", "F"];
 
     var newArray = charSet.filter(function(element){ //filter는 true false를 반환함 false반환시 리턴값이 없다.
-       return (element !== "**");
+        return (element !== "**");
     });
 
     console.log(newArray); //["B", "C", "D", "E", "F"]
 
 </script>
+</body>
 </html>

@@ -7,31 +7,28 @@
 <body>
 
 <script>
-    //new 객체 생성 패턴
-    function Marsupial(name , nocturnal) {
-        if(!(this instanceof Marsupial)){
-            throw new Error("이 객체는 new를 사용해서 생성하세요");
-        }
-        this.name = name;
-        this.isNocturanal = nocturnal;
-    }
-    Marsupial.prototype.isAwake = function(isNight){
-        return isNight === this.isNocturanal;
-    }
+   var AnimalKingdom = AnimalKingdom || {};
+   AnimalKingdom.marsupial = function(name , nocturnal){
+       var instanceName = name,
+           instanceIsNocturnal = nocturnal;
 
-    function Kangaroo(name){
-        if(!(this instanceof Marsupial)){
-            throw new Error("이 객체는 new를 사용해서 생성하세요");
-        }
-        this.name = name;
-        this.isNocturanal = false;
-    }
-    Kangaroo.prototype = new Marsupial();       //생성자 반복을 가져온다.
-    Kangaroo.prototype.hop = function(){
-        return this.name + '폴짝 폴짝';
-    };
-    var jster =new Kangaroo("제스터");
-    var isNightTime = false;
+       return {
+           getName : function(){
+               return instanceName;
+           },
+           getIsNocturnal : function(){
+               return instanceIsNocturnal;
+           }
+       };
+   };
+
+   AnimalKingdom.kangaroo = function(name){
+       var baseMarsupjial = AnimalKingdom.marsupial(name , false);
+       baseMarsupial.hop = function(){
+           return baseMarsupial.getName() + '이 껑충껑충 뛰어요'
+       };
+       return baseMarsupial;
+   }
 
 
 </script>

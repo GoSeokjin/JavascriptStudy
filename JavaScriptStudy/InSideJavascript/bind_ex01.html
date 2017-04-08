@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<script>
+    var originalObject = {
+        minimum: 50,
+        maximum: 100,
+        checkNumericRange: function (value) {
+            if (typeof value !== 'number')
+                return false;
+            else
+                return value >= this.minimum && value <= this.maximum;
+        }
+    };
+
+    var result = originalObject.checkNumericRange(10);
+    document.write(result + " ");
+
+    var range = { minimum: 10, maximum: 20 };
+
+    var boundObjectWithRange = originalObject.checkNumericRange.bind(range);
+
+    var result = boundObjectWithRange(10);
+    document.write(result);
+</script>
 </body>
 </html>

@@ -10,7 +10,6 @@
     <input type="text" value="testMan">
     <input type="password" value="testPassword">
 </form>
-</body>
 <script>
     //알파벳 문자인지 확인
     function testValue (element , index, array){
@@ -34,9 +33,11 @@
     elemArray[elem.id] = elem.value;
 
     Object.keys(elemArray).forEach(function(key){
-       var value = elemArray[key];
-       console.log(value);      // testMan
+        var value = elemArray[key];
+        console.log(value);      // testMan
     });
 
 </script>
+</body>
+
 </html>

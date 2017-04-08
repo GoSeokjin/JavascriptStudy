@@ -14,7 +14,6 @@
     <button id="validate">validate</button>
 </form>
 <div id="result"></div>
-</body>
 <script>
     document.getElementById('validate').addEventListener("click" , function(e){
         e.preventDefault();
@@ -27,12 +26,13 @@
         }
         var str ='';
         Object.keys(elemArray).forEach(function(key){
-           var value = elemArray[key];
-           str+=key + '->' + value;
+            var value = elemArray[key];
+            str+=key + '->' + value;
         });
         document.getElementById('result').innerText =str;
     } , false );
 
 
 </script>
+</body>
 </html>
